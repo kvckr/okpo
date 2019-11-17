@@ -6428,23 +6428,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aleh_Ihnatsenka\\.nuget\\packages\\": {},
+    "C:\\Users\\kvckr\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aleh_Ihnatsenka\\source\\reposs\\OKPO\\OKPO\\OKPO.csproj",
+      "projectUniqueName": "C:\\dev\\okpo\\OKPO\\OKPO.csproj",
       "projectName": "OKPO",
-      "projectPath": "C:\\Users\\Aleh_Ihnatsenka\\source\\reposs\\OKPO\\OKPO\\OKPO.csproj",
-      "packagesPath": "C:\\Users\\Aleh_Ihnatsenka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aleh_Ihnatsenka\\source\\reposs\\OKPO\\OKPO\\obj\\",
+      "projectPath": "C:\\dev\\okpo\\OKPO\\OKPO.csproj",
+      "packagesPath": "C:\\Users\\kvckr\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\okpo\\OKPO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Aleh_Ihnatsenka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kvckr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +19,7 @@ namespace OKPO
             log.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             TranslationRequestModel data = JsonConvert.DeserializeObject<TranslationRequestModel>(requestBody);
-            var translatedText = new TranslationService().Translate(data.Text);
+            var translatedText = new TranslationService().Translate(data.SourceLanguage, data.TargetLanguage, data.Text);
             return translatedText != null
                 ? (ActionResult)new OkObjectResult(translatedText)
                 : new BadRequestObjectResult("Please pass a name on the query string or in the request body");

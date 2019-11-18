@@ -8,12 +8,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Aliencube.AzureFunctions.Extensions.OpenApi.Attributes;
+using System.Net;
 
 namespace OKPO
 {
-    public static class GetLanguageCodes
+    public static class GetLanguagesDetails
     {
-        [FunctionName("GetLanguageCodes")]
+        [FunctionName("GetLanguagesDetails")]
+        [OpenApiOperation(Description = "Return list of all languages and their codes")]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(List<LanguageDetailsModel>), Description = "List of all languages and their codes")]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)

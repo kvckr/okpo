@@ -6,12 +6,18 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Aliencube.AzureFunctions.Extensions.OpenApi.Attributes;
+using System.Net;
+using Microsoft.OpenApi.Models;
 
 namespace OKPO
 {
     public static class Translate
     {
         [FunctionName("Translate")]
+        [OpenApiOperation(Description = "Returns translated text")]
+        [OpenApiRequestBody("application/json", typeof(TranslationRequestModel))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(string), Description = "Translated text")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -20,9 +26,7 @@ namespace OKPO
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             TranslationRequestModel data = JsonConvert.DeserializeObject<TranslationRequestModel>(requestBody);
             var translatedText = new TranslationService().Translate(data.SourceLanguage, data.TargetLanguage, data.Text);
-            return translatedText != null
-                ? (ActionResult)new OkObjectResult(translatedText)
-                : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+            return (ActionResult)new OkObjectResult(translatedText);
         }
     }
 }

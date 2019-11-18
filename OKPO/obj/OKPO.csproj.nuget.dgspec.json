@@ -41,6 +41,18 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
+            "Aliencube.AzureFunctions.Extensions.OpenApi": {
+              "target": "Package",
+              "version": "[1.5.4, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.NET.Sdk.Functions": {
               "target": "Package",
               "version": "[1.0.29, )"

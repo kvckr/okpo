@@ -6,12 +6,16 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Aliencube.AzureFunctions.Extensions.OpenApi.Attributes;
+using System.Net;
+using Microsoft.OpenApi.Models;
 
 namespace OKPO
 {
     public static class Translate
     {
         [FunctionName("Translate")]
+        [OpenApiOperation()]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)

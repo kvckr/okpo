@@ -25,6 +25,10 @@ namespace OKPO
             log.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             TranslationRequestModel data = JsonConvert.DeserializeObject<TranslationRequestModel>(requestBody);
+            if (data.Text.Length > 100)
+            {
+                log.LogWarning("Long text");
+            }
             var translatedText = new TranslationService().Translate(data.SourceLanguage, data.TargetLanguage, data.Text);
             return (ActionResult)new OkObjectResult(translatedText);
         }

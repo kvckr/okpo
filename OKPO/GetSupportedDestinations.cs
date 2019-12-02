@@ -23,9 +23,18 @@ namespace OKPO
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
+            Language sourceLanguage;
             log.LogInformation("C# HTTP trigger function processed a request.");
-            string code = req.Query["code"];
-            Language sourceLanguage = (Language)int.Parse(code);
+            try
+            {
+                string code = req.Query["code"];
+                sourceLanguage = (Language)int.Parse(code);
+            }
+            catch (Exception e)
+            {
+                log.LogError(e.Message);
+                throw;
+            }
             var supportedDestinations = new TranslationService().GetSupportedDestinations(sourceLanguage);
             return new OkObjectResult(supportedDestinations);
         }

@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using Aliencube.AzureFunctions.Extensions.OpenApi.Attributes;
 using System.Net;
 using Microsoft.OpenApi.Models;
+using Microsoft.ApplicationInsights;
+using System.Diagnostics;
 
 namespace OKPO
 {
@@ -22,14 +24,18 @@ namespace OKPO
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
+            TelemetryClient telemetry = new TelemetryClient();
+            telemetry.InstrumentationKey = System.Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
+            var sw = Stopwatch.StartNew();
             log.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             TranslationRequestModel data = JsonConvert.DeserializeObject<TranslationRequestModel>(requestBody);
             if (data.Text.Length > 100)
             {
-                log.LogWarning("Long text");
+                log.LogWarning("Long text translated");
             }
             var translatedText = new TranslationService().Translate(data.SourceLanguage, data.TargetLanguage, data.Text);
+            telemetry.GetMetric("TranslateTime").TrackValue(sw.ElapsedMilliseconds);
             return (ActionResult)new OkObjectResult(translatedText);
         }
     }

@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Aliencube.AzureFunctions.Extensions.OpenApi.Attributes;
 using System.Net;
+using Microsoft.ApplicationInsights;
+using System.Diagnostics;
 
 namespace OKPO
 {
@@ -22,8 +24,12 @@ namespace OKPO
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
+            TelemetryClient telemetry = new TelemetryClient();
+            telemetry.InstrumentationKey = System.Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
+            var sw = Stopwatch.StartNew();
             log.LogInformation("C# HTTP trigger function processed a request.");
             var languageCodes = new TranslationService().GetLanguagesDetails();
+            telemetry.GetMetric("GetLanguagesDetailsTime").TrackValue(sw.ElapsedMilliseconds);
             return new OkObjectResult(languageCodes);
         }
     }

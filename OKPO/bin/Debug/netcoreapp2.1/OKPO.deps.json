@@ -9,6 +9,7 @@
       "OKPO/1.0.0": {
         "dependencies": {
           "Aliencube.AzureFunctions.Extensions.OpenApi": "1.5.4",
+          "Microsoft.ApplicationInsights": "2.11.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.NET.Sdk.Functions": "1.0.29"
@@ -40,6 +41,18 @@
           "lib/netstandard2.0/Aliencube.AzureFunctions.Extensions.OpenApi.dll": {
             "assemblyVersion": "1.5.4.0",
             "fileVersion": "1.5.4.0"
+          }
+        }
+      },
+      "Microsoft.ApplicationInsights/2.11.0": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.6.0",
+          "System.Runtime.InteropServices": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ApplicationInsights.dll": {
+            "assemblyVersion": "2.11.0.0",
+            "fileVersion": "2.11.0.21474"
           }
         }
       },
@@ -354,7 +367,7 @@
           "Microsoft.Extensions.DependencyModel": "2.1.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.6.0",
           "System.Threading.Tasks.Extensions": "4.5.1"
         },
         "runtime": {
@@ -1305,7 +1318,14 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Diagnostics.DiagnosticSource/4.5.0": {},
+      "System.Diagnostics.DiagnosticSource/4.6.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "4.0.4.0",
+            "fileVersion": "4.700.19.46214"
+          }
+        }
+      },
       "System.Diagnostics.FileVersionInfo/4.3.0": {
         "dependencies": {
           "System.Globalization": "4.3.0",
@@ -2049,6 +2069,13 @@
       "sha512": "sha512-JGawfRYlzRYyL4SuTAYnsN4Qv00P59cRoaIVzkeUUpm0LfzkyNdWP1zF6/dNMFYLLNBfT/WGO78LjLigd7KGeg==",
       "path": "aliencube.azurefunctions.extensions.openapi/1.5.4",
       "hashPath": "aliencube.azurefunctions.extensions.openapi.1.5.4.nupkg.sha512"
+    },
+    "Microsoft.ApplicationInsights/2.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jPdBGfjld2NHQqirwFX+Y6Hu+lRCfTzDpbq7XI8bIOrgSvZ6LSucO+c6wOTFenGOF2oB2yhpvMC0xOWlTATiWw==",
+      "path": "microsoft.applicationinsights/2.11.0",
+      "hashPath": "microsoft.applicationinsights.2.11.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.4": {
       "type": "package",
@@ -2869,12 +2896,12 @@
       "path": "system.diagnostics.debug/4.3.0",
       "hashPath": "system.diagnostics.debug.4.3.0.nupkg.sha512"
     },
-    "System.Diagnostics.DiagnosticSource/4.5.0": {
+    "System.Diagnostics.DiagnosticSource/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eIHRELiYDQvsMToML81QFkXEEYXUSUT2F28t1SGrevWqP+epFdw80SyAXIKTXOHrIEXReFOEnEr7XlGiC2GgOg==",
-      "path": "system.diagnostics.diagnosticsource/4.5.0",
-      "hashPath": "system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512"
+      "sha512": "sha512-mbBgoR0rRfl2uimsZ2avZY8g7Xnh1Mza0rJZLPcxqiMWlkGukjmRkuMJ/er+AhQuiRIh80CR/Hpeztr80seV5g==",
+      "path": "system.diagnostics.diagnosticsource/4.6.0",
+      "hashPath": "system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512"
     },
     "System.Diagnostics.FileVersionInfo/4.3.0": {
       "type": "package",

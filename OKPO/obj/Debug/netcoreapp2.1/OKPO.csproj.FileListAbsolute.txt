@@ -173,3 +173,5 @@ C:\dev\okpo\OKPO\bin\Debug\netcoreapp2.1\bin\System.Security.Cryptography.Pkcs.d
 C:\dev\okpo\OKPO\bin\Debug\netcoreapp2.1\bin\System.Security.Cryptography.Xml.dll
 C:\dev\okpo\OKPO\bin\Debug\netcoreapp2.1\bin\System.Security.Permissions.dll
 C:\dev\okpo\OKPO\bin\Debug\netcoreapp2.1\bin\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+C:\dev\okpo\OKPO\bin\Debug\netcoreapp2.1\bin\Microsoft.ApplicationInsights.dll
+C:\dev\okpo\OKPO\bin\Debug\netcoreapp2.1\bin\System.Diagnostics.DiagnosticSource.dll

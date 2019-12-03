@@ -6,6 +6,7 @@
     "OpenApi__Info__Version": "2.0.0",
     "OpenApi__Info__Title": "Open API Sample on Azure Functions",
     "OpenApi__Info__License__Name": "MIT",
-    "OpenApi__ApiKey": ""
+    "OpenApi__ApiKey": "",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "2ca57f42-af14-4b9c-8753-c285caeb7687"
   }
 }

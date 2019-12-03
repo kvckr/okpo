@@ -26,7 +26,6 @@ namespace OKPO
         {
             TelemetryClient telemetry = new TelemetryClient();
             telemetry.InstrumentationKey = System.Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
-            var sw = Stopwatch.StartNew();
             log.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             TranslationRequestModel data = JsonConvert.DeserializeObject<TranslationRequestModel>(requestBody);
@@ -35,7 +34,7 @@ namespace OKPO
                 log.LogWarning("Long text translated");
             }
             var translatedText = new TranslationService().Translate(data.SourceLanguage, data.TargetLanguage, data.Text);
-            telemetry.GetMetric("TranslateTime").TrackValue(sw.ElapsedMilliseconds);
+            telemetry.GetMetric("TranslateCharacterAmount").TrackValue(data.Text.Length);
             return (ActionResult)new OkObjectResult(translatedText);
         }
     }

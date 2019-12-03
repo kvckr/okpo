@@ -4,7 +4,7 @@ namespace OKPO
 {
     public abstract class Translator
     {
-        private const int speedRate = 3000;
+        private const int speedRate = 10000;
         protected int sourceAlphabetStart;
         protected int sourceAlphabetEnd;
         protected int difference;
